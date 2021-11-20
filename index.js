@@ -34,7 +34,7 @@ app.get('/version', function (req, res) {
 })
 
 
-app.post('/users', async (req, res) => {
+app.post('/users-redis', async (req, res) => {
     try {
         await mongo.addNewUser();
         res.sendStatus(200);
@@ -54,7 +54,7 @@ app.post('/users', async (req, res) => {
 // })
 
 
-app.get('/users', async (req, res) => {
+app.get('/users-redis', async (req, res) => {
     const userRedisKey = "User";
 
     redisClient.get(userRedisKey, async (error, result) => {

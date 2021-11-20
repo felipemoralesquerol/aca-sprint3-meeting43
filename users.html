@@ -28,13 +28,13 @@
             }
         })
 
-        xhr.open('POST', `http://${host}/api/users`);
+        xhr.open('POST', `http://${host}/api/users-redis`);
 
         xhr.send();
     }
 
     function getUser() {
-        fetch(`http://${host}/api/users`)
+        fetch(`http://${host}/api/users-redis`)
             .then(response => response.json())
             .then(user => {
                 const userInfoContainer = document.getElementById('user-information');
