@@ -12,7 +12,7 @@ exports.addNewUser = async function addNewUser() {
     const newPerson = { name: "Juan", lastName: "Perez", age: 24 };
     let newUser = new Users(newPerson);
 
-    await newUser.save();
+    return await newUser.save();
 }
 
 exports.getAllUsers = async function getAllUsers() {

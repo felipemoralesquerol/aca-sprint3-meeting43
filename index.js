@@ -35,8 +35,13 @@ app.get('/version', function (req, res) {
 
 
 app.post('/users-redis', async (req, res) => {
+    const userRedisKey = "User";
     try {
-        await mongo.addNewUser();
+        let user = await mongo.addNewUser();
+
+        // Y se guarda en Redis para que esté disponible en la próxima llamada
+        redisClient.set(userRedisKey, JSON.stringify(user));
+
         res.sendStatus(200);
     } catch (err) {
         console.error(`Error: `, err.message);
