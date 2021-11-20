@@ -65,7 +65,9 @@ app.get('/users-redis', async (req, res) => {
         // Si hay algún resultado, quiere decir que fue obtenido desde Redis
         // En este caso, lo devolvemos sin más
         if (result) {
-            res.json(result);
+            // Remueve characters incorrectos
+            str = result.replace(/\\/g, '');
+            res.json(str);
         } else {
             // Si no se encontró nada en Redis, se busca en la DB
             let user = await mongo.getAllUsers();
