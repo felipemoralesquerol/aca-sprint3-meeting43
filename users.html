@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Información de Usuarios - Meeting 42 MongoDB</title>
+</head>
+
+<body>
+    <h1>Información del usuario</h1>
+    <button id="add-user-button" onclick="addUser();">Agregar usuario</button>
+    <button id="get-user-button" onclick="getUser();" style="display: none;">Obtener usuario</button>
+    <div id="user-information"></div>
+</body>
+
+</html>
+
+<script>
+    const host = "ec2-54-144-155-208.compute-1.amazonaws.com";
+
+    function addUser() {
+        const xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('readystatechange', function () {
+            if (this.readyState === this.DONE) {
+                document.getElementById('get-user-button').style.display = "block";
+                document.getElementById('add-user-button').style.display = "none";
+            }
+        })
+
+        xhr.open('POST', `http://${host}/api/users`);
+
+        xhr.send();
+    }
+
+    function getUser() {
+        fetch(`http://${host}/api/users`)
+            .then(response => response.json())
+            .then(user => {
+                const userInfoContainer = document.getElementById('user-information');
+
+                let userInfo = `<p>Nombre: <strong>${user.name}</strong></p>`;
+                userInfo += `<p>Apellido: <strong>${user.lastName}</strong></p>`;
+                userInfo += `<p>Edad: <strong>${user.age}</strong></p>`;
+
+                userInfoContainer.innerHTML = userInfo;
+            });
+    }
+</script>
