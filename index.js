@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/version', function (req, res) {
-    res.send('API v1.0 (con soporte de MongoDB)')
+    res.send('API v1.0 (con soporte de MongoDB y redis)')
 })
 
 
@@ -73,6 +73,7 @@ app.get('/users-redis', async (req, res) => {
             res.send(result);
         } else {
             // Si no se encontró nada en Redis, se busca en la DB
+            // FMO Ojo que en toolbox esta mal!!!
             let user = await mongo.getAllUsers();
 
             // Y se guarda en Redis para que esté disponible en la próxima llamada
