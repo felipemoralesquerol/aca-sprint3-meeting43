@@ -71,3 +71,10 @@ gzip on;
 gzip_disable "MSIE [1-6]\.(?!.*SV1)";
 gzip_vary on;
 gzip_types text/plain text/css text/javascript image/svg+xml image/x-icon application/javascript application/x-javascript;
+
+
+# Instalar redis-cli en AWS (desde adentro de la VM AL2)
+
+sudo yum install -y gcc
+wget http://download.redis.io/redis-stable.tar.gz && tar xvzf redis-stable.tar.gz && cd redis-stable && make
+sudo cp src/redis-cli /usr/bin/
