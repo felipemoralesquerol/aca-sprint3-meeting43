@@ -58,11 +58,10 @@ sudo amazon-linux-extras install -y nginx1
 cat /etc/nginx/nginx.conf
 
 # Chequear nginx
-nginx -t
+```nginx -t```
 
 # Recargar nginx
-sudo nginx -s reload 
-
+sudo nginx -s reload
 # Qué hacer si no puedo reinicar nginx
 https://stackoverflow.com/questions/51402373/i-cant-restart-my-nginx
 
@@ -75,6 +74,6 @@ gzip_types text/plain text/css text/javascript image/svg+xml image/x-icon applic
 
 # Instalar redis-cli en AWS (desde adentro de la VM AL2)
 
-sudo yum install -y gcc
-wget http://download.redis.io/redis-stable.tar.gz && tar xvzf redis-stable.tar.gz && cd redis-stable && make
-sudo cp src/redis-cli /usr/bin/
+- `sudo yum install -y gcc`
+- `wget http://download.redis.io/redis-stable.tar.gz && tar xvzf redis-stable.tar.gz && cd redis-stable && make`
+- `sudo cp src/redis-cli /usr/bin/`
