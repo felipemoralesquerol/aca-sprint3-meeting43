@@ -16,7 +16,7 @@ Vía git
  
 # Check git version
 ```git version```
-Nota: Instalar desde este link https://cloudaffaire.com/how-to-install-git-in-aws-ec2-instance/
+```Nota: Instalar desde este link https://cloudaffaire.com/how-to-install-git-in-aws-ec2-instance/```
 
 
 # Install pm2
