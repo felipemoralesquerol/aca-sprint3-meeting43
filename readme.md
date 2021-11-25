@@ -51,7 +51,7 @@ module.exports = {
 
 ```node index.js```
 
-# Install nginx
+# Instalación de nginx
 ```sudo amazon-linux-extras install -y nginx1```
 
 # Ver archivo nginx.conf
