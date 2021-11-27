@@ -48,16 +48,6 @@ app.post('/users-redis', async (req, res) => {
     }
 })
 
-// app.get('/users', async (req, res) => {
-//     try {
-//         let users = await mongo.getAllUsers();
-//         res.send(users);
-//     } catch (err) {
-//         console.error(`Error: `, err.message);
-//         res.status(500)
-//     }
-// })
-
 
 app.get('/users-redis', async (req, res) => {
     const userRedisKey = "User";
