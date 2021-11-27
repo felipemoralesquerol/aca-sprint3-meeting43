@@ -9,6 +9,7 @@ mongoose.connect(uri);
 
 
 exports.addNewUser = async function addNewUser() {
+    // Datos fijos!
     const newPerson = { name: "Juan", lastName: "Perez", age: 24 };
     let newUser = new Users(newPerson);
 
